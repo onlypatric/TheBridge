@@ -1,13 +1,11 @@
 package plugily.projects.thebridge.kits;
 
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import plugily.projects.minigamesbox.classic.PluginMain;
 import plugily.projects.minigamesbox.classic.utils.misc.ColorUtil;
-import plugily.projects.minigamesbox.classic.utils.version.xseries.XItemStack;
 import plugily.projects.minigamesbox.classic.utils.version.xseries.XMaterial;
 import plugily.projects.thebridge.arena.Arena;
 
@@ -27,15 +25,15 @@ public class KitUtils {
     plugin.getDebugger().performance("Kit", "Arena {0} Handle item method called for player {1} item stack {2}.", arena.getId(), player, itemStack);
 
     // Replaces white terracotta with coloured terracotta if the player is in a team
-    if(itemStack.getType().equals(XMaterial.matchXMaterial(plugin.getConfig().getString("Kit.Colored-Block-Replace-Material", "WHITE_WOOL")).orElse(XMaterial.WHITE_WOOL).parseMaterial())) {
+    if(itemStack.getType().equals(XMaterial.matchXMaterial(plugin.getConfig().getString("Kit.Colored-Block-Replace-Material", "WHITE_WOOL")).orElse(XMaterial.WHITE_WOOL).get())) {
       Optional<XMaterial> material = XMaterial.matchXMaterial(arena.getBase(player).getMaterialColor().toUpperCase() + "_" + plugin.getConfig().getString("Kit.Colored-Block-Material", "WOOL"));
-      material.ifPresent(xMaterial -> itemStack.setType(Objects.requireNonNull(xMaterial.parseMaterial())));
+      material.ifPresent(xMaterial -> itemStack.setType(Objects.requireNonNull(xMaterial.get())));
       plugin.getDebugger().performance("Kit", "Arena {0} Changing coloured block to {1}.", arena.getId(), arena.getBase(player).getMaterialColor().toUpperCase() + "_" + plugin.getConfig().getString("Kit.Colored-Block-Material", "WOOL"));
       return itemStack;
     }
 
     // Replaces leather armour with the coloured leather armour if the player is in a team
-    if(itemStack.getType().equals(XMaterial.LEATHER_HELMET.parseMaterial()) || itemStack.getType().equals(XMaterial.LEATHER_CHESTPLATE.parseMaterial()) || itemStack.getType().equals(XMaterial.LEATHER_LEGGINGS.parseMaterial()) || itemStack.getType().equals(XMaterial.LEATHER_BOOTS.parseMaterial())) {
+    if(itemStack.getType().equals(XMaterial.LEATHER_HELMET.get()) || itemStack.getType().equals(XMaterial.LEATHER_CHESTPLATE.get()) || itemStack.getType().equals(XMaterial.LEATHER_LEGGINGS.get()) || itemStack.getType().equals(XMaterial.LEATHER_BOOTS.get())) {
       LeatherArmorMeta itemMeta = (LeatherArmorMeta) itemStack.getItemMeta();
       assert itemMeta != null;
       itemMeta.setColor(ColorUtil.fromChatColor(ChatColor.valueOf(arena.getBase(player).getColor().toUpperCase())));

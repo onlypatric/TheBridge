@@ -17,15 +17,15 @@ public class CountableCategory extends PluginCountableCategory {
   public void addItems(NormalFastInv gui) {
     super.addItems(gui);
 
-    CountItem maximumSize = new CountItem(getSetupInventory(), new ItemBuilder(XMaterial.REDSTONE.parseMaterial()), "Maximum Players Per Base", "How many players one base can hold", "maximumsize");
+    CountItem maximumSize = new CountItem(getSetupInventory(), new ItemBuilder(XMaterial.REDSTONE.get()), "Maximum Players Per Base", "How many players one base can hold", "maximumsize");
     gui.setItem((getInventoryLine() * 9) + 3, maximumSize);
     getItemList().add(maximumSize);
 
-    CountItem modeValue = new CountItem(getSetupInventory(), new ItemBuilder(XMaterial.REDSTONE_TORCH.parseMaterial()), "Mode Value", "How many points until the mode choose winner", "modevalue");
+    CountItem modeValue = new CountItem(getSetupInventory(), new ItemBuilder(XMaterial.REDSTONE_TORCH.get()), "Mode Value", "How many points until the mode choose winner", "modevalue");
     gui.setItem((getInventoryLine() * 9) + 4, modeValue);
     getItemList().add(modeValue);
 
-    CountItem resetBlocks = new CountItem(getSetupInventory(), new ItemBuilder(XMaterial.REDSTONE_LAMP.parseMaterial()), "reset blocks round", "After how many rounds should we reset blocks? \n Disable by setting the value to 0 in arenas.yml!", "resetblocks");
+    CountItem resetBlocks = new CountItem(getSetupInventory(), new ItemBuilder(XMaterial.REDSTONE_LAMP.get()), "reset blocks round", "After how many rounds should we reset blocks? \n Disable by setting the value to 0 in arenas.yml!", "resetblocks");
     gui.setItem((getInventoryLine() * 9) + 5, resetBlocks);
     getItemList().add(resetBlocks);
   }

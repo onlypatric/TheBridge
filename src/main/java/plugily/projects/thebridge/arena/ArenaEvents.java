@@ -18,6 +18,7 @@
 
 package plugily.projects.thebridge.arena;
 
+import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
@@ -127,7 +128,7 @@ public class ArenaEvents extends PluginArenaEvents {
     }
     if(!plugin.getConfigPreferences().getOption("BLOCK_BREAK_DROP")) {
       event.getBlock().getDrops().clear();
-      event.getBlock().setType(XMaterial.AIR.parseMaterial());
+      event.getBlock().setType(XMaterial.AIR.get());
     }
     event.setCancelled(false);
   }
@@ -236,11 +237,13 @@ public class ArenaEvents extends PluginArenaEvents {
         playerDeath(victim, arena);
       }
       DecimalFormat df = new DecimalFormat("##.##");
-      VersionUtils.sendActionBar(attacker, new MessageBuilder("IN_GAME_MESSAGES_ARENA_DAMAGE")
-        .asKey()
-        .player(victim)
-        .value(df.format(victim.getHealth() - event.getDamage()))
-        .build());
+      attacker.sendActionBar(Component.text(
+        new MessageBuilder("IN_GAME_MESSAGES_ARENA_DAMAGE")
+          .asKey()
+          .player(victim)
+          .value(df.format(victim.getHealth() - event.getDamage()))
+          .build()
+      ));
     }
   }
 

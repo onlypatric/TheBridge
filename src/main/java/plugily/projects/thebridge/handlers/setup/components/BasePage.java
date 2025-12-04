@@ -77,28 +77,28 @@ public class BasePage extends NormalFastInv implements InventoryHandler {
       }).buildFor((Player) event.getWhoClicked());
     }));
 
-    LocationSelectorItem baseCorners = new LocationSelectorItem(setupInventory, new ItemBuilder(XMaterial.BEDROCK.parseMaterial()), "Base", "Set the corners of one base",  "bases." + getId(setupInventory.getPlayer()) + ".baselocation");
+    LocationSelectorItem baseCorners = new LocationSelectorItem(setupInventory, new ItemBuilder(XMaterial.BEDROCK.get()), "Base", "Set the corners of one base",  "bases." + getId(setupInventory.getPlayer()) + ".baselocation");
     setItem(1, baseCorners);
 
     //portal in mid function? LocationSerializer.saveLoc(setupInventory.getPlugin(), setupInventory.getConfig(), "arenas", "instances." + setupInventory.getArenaKey() + ".bases." + getId(setupInventory.getPlayer()) + ".portalhologram", new Cuboid(selection.getFirstPos(), selection.getSecondPos()).getCenter().add(0, 2, 0));
-    LocationSelectorItem portalCorners = new LocationSelectorItem(setupInventory, new ItemBuilder(XMaterial.ENDER_EYE.parseMaterial()), "Portal", "Set the corners of the portal on the base", "bases." + getId(setupInventory.getPlayer()) + ".portallocation");
+    LocationSelectorItem portalCorners = new LocationSelectorItem(setupInventory, new ItemBuilder(XMaterial.ENDER_EYE.get()), "Portal", "Set the corners of the portal on the base", "bases." + getId(setupInventory.getPlayer()) + ".portallocation");
     setItem(2, portalCorners);
 
-    LocationSelectorItem cageCorners = new LocationSelectorItem(setupInventory, new ItemBuilder(XMaterial.GLASS.parseMaterial()), "Cage", "Set the corners of the cage, all inside will be removed (Make sure to select the full cage, not only the floor!) \n its optional!", "bases." + getId(setupInventory.getPlayer()) + ".cagelocation");
+    LocationSelectorItem cageCorners = new LocationSelectorItem(setupInventory, new ItemBuilder(XMaterial.GLASS.get()), "Cage", "Set the corners of the cage, all inside will be removed (Make sure to select the full cage, not only the floor!) \n its optional!", "bases." + getId(setupInventory.getPlayer()) + ".cagelocation");
     setItem(3, cageCorners);
 
 
-    LocationItem spawnPoint = new LocationItem(setupInventory, new ItemBuilder(XMaterial.EMERALD_BLOCK.parseMaterial()), "SpawnPoint", "Position where players spawn the first time and on round reset", "bases." + getId(setupInventory.getPlayer()) + ".spawnpoint");
+    LocationItem spawnPoint = new LocationItem(setupInventory, new ItemBuilder(XMaterial.EMERALD_BLOCK.get()), "SpawnPoint", "Position where players spawn the first time and on round reset", "bases." + getId(setupInventory.getPlayer()) + ".spawnpoint");
     setItem(4, spawnPoint);
 
-    LocationItem respawnPoint = new LocationItem(setupInventory, new ItemBuilder(XMaterial.EMERALD_BLOCK.parseMaterial()), "ReSpawnPoint", "Position where players spawn on respawn (death)", "bases." + getId(setupInventory.getPlayer()) + ".respawnpoint");
+    LocationItem respawnPoint = new LocationItem(setupInventory, new ItemBuilder(XMaterial.EMERALD_BLOCK.get()), "ReSpawnPoint", "Position where players spawn on respawn (death)", "bases." + getId(setupInventory.getPlayer()) + ".respawnpoint");
     setItem(5, respawnPoint);
 
-    LocationItem hologramLocation = new LocationItem(setupInventory, new ItemBuilder(XMaterial.ARMOR_STAND.parseMaterial()), "Portal Hologram", "The hologram postion for the portal. Best is to set it with player position!", "bases." + getId(setupInventory.getPlayer()) + ".portalhologram");
+    LocationItem hologramLocation = new LocationItem(setupInventory, new ItemBuilder(XMaterial.ARMOR_STAND.get()), "Portal Hologram", "The hologram postion for the portal. Best is to set it with player position!", "bases." + getId(setupInventory.getPlayer()) + ".portalhologram");
     setItem(6, hologramLocation);
 
 
-    setItem(7, ClickableItem.of(new ItemBuilder(XMaterial.FIREWORK_ROCKET.parseMaterial())
+    setItem(7, ClickableItem.of(new ItemBuilder(XMaterial.FIREWORK_ROCKET.get())
       .name(new MessageBuilder("&e&lFinish Base").build())
       .lore(ChatColor.GREEN + "Click to finish & save the setup of this base")
       .build(), event -> {

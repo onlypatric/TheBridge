@@ -38,11 +38,11 @@ public class LocationCategory extends PluginLocationCategory {
   public void addItems(NormalFastInv gui) {
     super.addItems(gui);
 
-    LocationItem midLocation = new LocationItem(getSetupInventory(), new ItemBuilder(XMaterial.BEACON.parseMaterial()), "Mid", "Set the location where all \n lines will be crossed from each base", "midlocation");
+    LocationItem midLocation = new LocationItem(getSetupInventory(), new ItemBuilder(XMaterial.BEACON.get()), "Mid", "Set the location where all \n lines will be crossed from each base", "midlocation");
     gui.setItem((getInventoryLine() * 9) + 4, midLocation);
     getItemList().add(midLocation);
 
-    LocationSelectorItem arenaBorder = new LocationSelectorItem(getSetupInventory(), new ItemBuilder(XMaterial.BEDROCK.parseMaterial()), "Arena", "Location where all bases and lines are in \n (players will be able to build inside) \n MAKE SURE TO SET IT OUTSIDE \n OF THE BASES WHICH YOU SET BEFORE!", "arenalocation");
+    LocationSelectorItem arenaBorder = new LocationSelectorItem(getSetupInventory(), new ItemBuilder(XMaterial.BEDROCK.get()), "Arena", "Location where all bases and lines are in \n (players will be able to build inside) \n MAKE SURE TO SET IT OUTSIDE \n OF THE BASES WHICH YOU SET BEFORE!", "arenalocation");
     gui.setItem((getInventoryLine() * 9) + 5, arenaBorder);
     getItemList().add(arenaBorder);
   }

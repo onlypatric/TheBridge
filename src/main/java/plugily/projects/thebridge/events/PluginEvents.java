@@ -31,10 +31,8 @@ import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerTeleportEvent;
-import org.bukkit.potion.PotionEffectType;
 import plugily.projects.minigamesbox.api.arena.IArenaState;
 import plugily.projects.minigamesbox.classic.handlers.language.MessageBuilder;
-import plugily.projects.minigamesbox.classic.utils.services.UpdateChecker;
 import plugily.projects.minigamesbox.classic.utils.version.VersionUtils;
 import plugily.projects.minigamesbox.classic.utils.version.xseries.XMaterial;
 import plugily.projects.minigamesbox.classic.utils.version.xseries.XPotion;
@@ -88,7 +86,7 @@ public class PluginEvents implements Listener {
     if(arena == null) {
       return;
     }
-    if(event.getItem().getType() == XMaterial.GOLDEN_APPLE.parseMaterial()) {
+    if(event.getItem().getType() == XMaterial.GOLDEN_APPLE.get()) {
       player.setFoodLevel(20);
       player.setHealth(VersionUtils.getMaxHealth(player));
       player.removePotionEffect(XPotion.REGENERATION.getPotionEffectType());

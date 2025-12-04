@@ -37,7 +37,7 @@ public class SwitchCategory extends PluginSwitchCategory {
   @Override
   public void addItems(NormalFastInv gui) {
     super.addItems(gui);
-    SwitchItem arenaMode = new SwitchItem(getSetupInventory(), new ItemBuilder(XMaterial.APPLE.parseMaterial()), "Mode", "(Points: Base with the most points win\n(Hearts: Kinda Last Team Standing)", "mode", Arrays.asList("HEARTS", "POINTS"));
+    SwitchItem arenaMode = new SwitchItem(getSetupInventory(), new ItemBuilder(XMaterial.APPLE.get()), "Mode", "(Points: Base with the most points win\n(Hearts: Kinda Last Team Standing)", "mode", Arrays.asList("HEARTS", "POINTS"));
     gui.setItem((getInventoryLine() * 9) + 1, arenaMode);
     getItemList().add(arenaMode);
   }

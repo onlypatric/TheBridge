@@ -241,9 +241,9 @@ public class Base {
     }
     damageCooldown = true;
     if(plugin.getConfigPreferences().getOption("CAGE_ONLY_FLOOR")) {
-      cageCuboid.fillFloor(XMaterial.AIR.parseMaterial());
+      cageCuboid.fillFloor(XMaterial.AIR.get());
     } else {
-      cageCuboid.fill(XMaterial.AIR.parseMaterial());
+      cageCuboid.fill(XMaterial.AIR.get());
     }
     Bukkit.getScheduler().runTaskLater(plugin, () -> damageCooldown = false, 20 * 4L);
   }

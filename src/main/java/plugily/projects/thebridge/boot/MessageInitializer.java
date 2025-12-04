@@ -2,11 +2,7 @@ package plugily.projects.thebridge.boot;
 
 import plugily.projects.minigamesbox.classic.handlers.language.Message;
 import plugily.projects.minigamesbox.classic.handlers.language.MessageManager;
-import plugily.projects.minigamesbox.classic.utils.services.locale.Locale;
-import plugily.projects.minigamesbox.classic.utils.services.locale.LocaleRegistry;
 import plugily.projects.thebridge.Main;
-
-import java.util.Arrays;
 
 /**
  * @author Tigerpanzer_02
